@@ -16,7 +16,7 @@ print AppName
 
 print "Creating Application "+AppName
 OUT=createApplication(Username,Password,ServerEndpoint,Filename,AppName)
-print "Output status "+ OUT
+print "Output status "+ str(OUT)
 
 if OUT == False:
     sys.exit(100)
