@@ -2,15 +2,13 @@ import requests
 import json
 import time
 
-ServerEndpoint=""
-User=""
-Password=""
-ConfigDir="./"
 
-def createComponent(FileName,componentName):
+
+def createComponent(User,Password,FileName,componentName):
     print "Creating component "+componentName
     CreateComponentUri="/cli/component/create"
-    FilePath=ConfigDir+"/"+FileName
+#    FilePath=ConfigDir+"/"+FileName
+    FilePath=FileName
     json_data = open(FilePath)
     print json_data
     headers = {'Accept': 'application/json'}
