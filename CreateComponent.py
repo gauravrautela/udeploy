@@ -2,10 +2,10 @@ from mainfuction import *
 import sys
 
 
-Username=sys.argv[0]
-Password=sys.argv[1]
-Filename=sys.argv[2]
-ComponentName=sys.argv[3]
+Username=sys.argv[1]
+Password=sys.argv[2]
+Filename=sys.argv[3]
+ComponentName=sys.argv[4]
 
 print Username
 print Password
