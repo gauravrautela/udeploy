@@ -11,6 +11,3 @@ from mainfuction import *
 #createComponent("newComponent.json","helloWorld")
 #createApplication("hello Application","newApplication.json")
 
-<authorizationStrategy class="hudson.security.ProjectMatrixAuthorizationStrategy"/>
-
-https://www.youtube.com/watch?v=4xFg78KS7Ao
