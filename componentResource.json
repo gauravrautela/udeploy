@@ -1,0 +1,8 @@
+{
+  "name":"helloWorldResource",
+  "description":"",
+  "inheritTeam":"true",
+  "useImpersonation":"false",
+  "roleProperties":{},
+  "teamMappings":[]
+}
