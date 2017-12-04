@@ -17,5 +17,5 @@ print ComponentName
 print "Creating Component "+ComponentName
 OUT=createComponent(Username,Password,ServerEndpoint,Filename,ComponentName)
 
-if OUT == "False":
+if OUT == False:
     sys.exit(100)
