@@ -35,11 +35,11 @@ def getAppInfo(AppName):
     return json.loads(requestAppInfo.content)
 
 
-def createApplication(AppName,FileName):
+def createApplication(User,Password,ServerEndpoint,FilePath,AppName):
     print "Creating Application - "+AppName
     createApplicationUri="/cli/application/create"
     createApplicationUrl=ServerEndpoint+createApplicationUri
-    FilePath = ConfigDir + "/" + FileName
+  #  FilePath = ConfigDir + "/" + FileName
     json_data = open(FilePath)
     headers = {'Accept': 'application/json'}
     requestAppCreate= requests.put(createApplicationUrl, headers=headers,data=json_data,auth=(User,Password))

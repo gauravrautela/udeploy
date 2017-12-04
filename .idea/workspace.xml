@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17d2b877-bf47-489b-a10b-ac3c443c5cc9" name="Default" comment="" />
+    <list default="true" id="17d2b877-bf47-489b-a10b-ac3c443c5cc9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainfuction.py" afterPath="$PROJECT_DIR$/mainfuction.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +17,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CreateComponent.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreateComponent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CreateComponent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+            <state relative-caret-position="255">
+              <caret line="17" column="78" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="78" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -27,11 +29,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainfuction.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CreateApplication.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CreateApplication.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="74" lean-forward="false" selection-start-line="17" selection-start-column="74" selection-end-line="17" selection-end-column="74" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainfuction.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mainfuction.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+            <state relative-caret-position="210">
+              <caret line="39" column="50" lean-forward="true" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -41,14 +55,22 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mainfuction.py" />
         <option value="$PROJECT_DIR$/CreateComponent.py" />
+        <option value="$PROJECT_DIR$/CreateApplication.py" />
+        <option value="$PROJECT_DIR$/mainfuction.py" />
       </list>
     </option>
   </component>
@@ -274,22 +296,32 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mainfuction.py">
+    <entry file="file://$PROJECT_DIR$/CreateComponent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        <state relative-caret-position="255">
+          <caret line="17" column="78" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="78" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CreateComponent.py">
+    <entry file="file://$PROJECT_DIR$/CreateApplication.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        <state relative-caret-position="255">
+          <caret line="17" column="74" lean-forward="false" selection-start-line="17" selection-start-column="74" selection-end-line="17" selection-end-column="74" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainfuction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="39" column="50" lean-forward="true" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
