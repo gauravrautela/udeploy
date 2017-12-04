@@ -2,9 +2,9 @@ import requests
 import json
 import time
 
-ServerEndpoint="http://54.169.134.120:8080"
-User="admin"
-Password="poi098123"
+ServerEndpoint=""
+User=""
+Password=""
 ConfigDir="./"
 
 def createComponent(FileName,componentName):
