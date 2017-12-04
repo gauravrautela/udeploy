@@ -7,5 +7,9 @@ Password=sys.argv[1]
 Filename=sys.argv[2]
 ComponentName=sys.argv[3]
 
+print Username
+print Password
+print Filename
+print ComponentName
 print "Creating Component "+ComponentName
 print createComponent(Username,Password,Filename,ComponentName)
