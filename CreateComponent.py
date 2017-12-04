@@ -13,5 +13,6 @@ print Password
 print Filename
 print ServerEndpoint
 print ComponentName
+
 print "Creating Component "+ComponentName
 print createComponent(Username,Password,ServerEndpoint,Filename,ComponentName)
