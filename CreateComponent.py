@@ -4,12 +4,14 @@ import sys
 
 Username=sys.argv[1]
 Password=sys.argv[2]
-Filename=sys.argv[3]
-ComponentName=sys.argv[4]
+ServerEndpoint=sys.argv[3]
+Filename=sys.argv[4]
+ComponentName=sys.argv[5]
 
 print Username
 print Password
 print Filename
+print ServerEndpoint
 print ComponentName
 print "Creating Component "+ComponentName
-print createComponent(Username,Password,Filename,ComponentName)
+print createComponent(Username,Password,ServerEndpoint,Filename,ComponentName)

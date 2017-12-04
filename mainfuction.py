@@ -4,7 +4,7 @@ import time
 
 
 
-def createComponent(User,Password,FileName,componentName):
+def createComponent(User,Password,ServerEndpoint,FileName,componentName):
     print "Creating component "+componentName
     CreateComponentUri="/cli/component/create"
 #    FilePath=ConfigDir+"/"+FileName
