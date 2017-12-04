@@ -15,4 +15,4 @@ print ServerEndpoint
 print AppName
 
 print "Creating Application "+AppName
-print createApplication(Username,Password,ServerEndpoint,Filename,ComponentName)
+print createApplication(Username,Password,ServerEndpoint,Filename,AppName)
