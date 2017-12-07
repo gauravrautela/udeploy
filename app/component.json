@@ -1,0 +1,9 @@
+{
+  "name": ,
+  "description": "IIB Component",
+  "importAutomatically": False,
+  "useVfs": True,
+  "sourceConfigPlugin": "None",
+  "defaultVersionType": "FULL",
+  "templateName": "Aetna IIB"
+}

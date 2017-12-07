@@ -3,24 +3,38 @@ import json
 import time
 
 
-
-def createComponent(User,Password,ServerEndpoint,configDir,componentName):
-    print "Creating component "+componentName
-    CreateComponentUri="/cli/component/create"
-#    FilePath=ConfigDir+"/"+FileName
-    FilePath=configDir+"/component.json"
-    json_data = open(FilePath)
-    print json_data
+def create(User,Password,ServerEndpoint,config,componentName,url):
+    print ("Creating component"+componentName)
+    CreateComponentUri=url
     headers = {'Accept': 'application/json'}
     CreateUrl= ServerEndpoint+CreateComponentUri
     print "Url - "+CreateUrl
-    request_create = requests.put(CreateUrl, headers=headers,data=json_data,auth=(User,Password))
+    request_create = requests.put(CreateUrl, headers=headers,data=json.dumps(config),auth=(User,Password))
     if request_create.status_code != 200:
-       print "Component create request failed " + request_create.content
+       print ("Component create request failed " + request_create.content)
        return False
-    print "Request Passed - Returning Response content"
+    print ("Request Passed - Returning Response content")
     print json.loads(request_create.content)
     return json.loads(request_create.content)
+
+
+
+def createComponent(User,Password,ServerEndpoint,config,componentName):
+    print ("Creating component"+componentName)
+    CreateComponentUri="/cli/component/create"
+    headers = {'Accept': 'application/json'}
+    CreateUrl= ServerEndpoint+CreateComponentUri
+    print "Url - "+CreateUrl
+    request_create = requests.put(CreateUrl, headers=headers,data=json.dumps(config),auth=(User,Password))
+    if request_create.status_code != 200:
+       print ("Component create request failed " + request_create.content)
+       return False
+    print ("Request Passed - Returning Response content")
+    print json.loads(request_create.content)
+    return json.loads(request_create.content)
+
+
+
 
 def getAppInfo(AppName):
     AppInfoUri="/cli/application/info"
@@ -99,7 +113,7 @@ def addTagToApplication(tag,appName):
     print "Adding Tag to App Passed"
     return True
 
-def appToTeam(appName,teamName):
+def appToTeam(appName,teamName,ServerEndpoint,User,Password):
     print "Adding app "+appName+" to "+teamName
     appToTeamUri="/cli/application/teams"
     appToTeamUrl=ServerEndpoint+appToTeamUri
@@ -114,7 +128,7 @@ def appToTeam(appName,teamName):
     print "Adding "+appName+" to "+teamName
     return True
 
-def componentToTeam(componentName,teamApp):
+def componentToTeam(componentName,teamApp,ServerEndpoint,User,Password):
     print "Adding component "+componentName+" to "+teamApp
     componentToTeamUri="/cli/component/teams"
     componentToTeamUrl=ServerEndpoint+componentToTeamUri
