@@ -1,15 +1,17 @@
 import requests
 import json
-import time
 
 
 def create(User,Password,ServerEndpoint,config,componentName,url):
     print ("Creating component"+componentName)
     CreateComponentUri=url
-    headers = {'Accept': 'application/json'}
+    headers = {
+        'Accept': 'application/json'
+               }
     CreateUrl= ServerEndpoint+CreateComponentUri
-    print "Url - "+CreateUrl
-    request_create = requests.put(CreateUrl, headers=headers,data=json.dumps(config),auth=(User,Password))
+    print "Url - "+CreateUrl+User+Password
+    request_create = requests.put(CreateUrl,headers=headers,data=json.dumps(config),auth=(User,Password))
+#    request_create = requests.put(CreateUrl,data=json.dumps(config),headers=headersID)
     if request_create.status_code != 200:
        print ("Component create request failed " + request_create.content)
        return False
@@ -64,7 +66,7 @@ def createApplication(User,Password,ServerEndpoint,configDir,AppName):
     print json.loads(requestAppCreate.content)
     return json.loads(requestAppCreate.content)
 
-def addComponentToApp(componentName,appName):
+def addComponentToApp(componentName,appName,ServerEndpoint,Username,Password):
     print "Adding "+componentName+" to app "+appName
     addComponentToAppUri="/cli/application/addComponentToApp"
     addComponentToAppUrl=ServerEndpoint+addComponentToAppUri
@@ -72,7 +74,7 @@ def addComponentToApp(componentName,appName):
         "component" : componentName,
         "application" : appName
     }
-    requestAddComponentToApp=requests.put(addComponentToAppUrl,params=payload,auth=(User,Password))
+    requestAddComponentToApp=requests.put(addComponentToAppUrl,params=payload,auth=(Username,Password))
     if requestAddComponentToApp.status_code != 200:
         print "Component add to App request failed" + requestAddComponentToApp.content
         return False
@@ -82,15 +84,11 @@ def addComponentToApp(componentName,appName):
     return True
 
 
-def createEnvironment(envName,appName):
-    print "Creating Enviroment "+envName
+def createEnvironment(Username,Password,ServerEndpoint,configenv,appName):
+    print "Creating Enviroment for "+appName
     createEnvUri="/cli/environment/createEnvironment"
     createEnvUrl=ServerEndpoint+createEnvUri
-    payload={
-        "application" : appName,
-        "name" : envName
-    }
-    requestCreateEnv=requests.put(createEnvUrl,params=payload,auth=(User,Password))
+    requestCreateEnv=requests.put(createEnvUrl,params=configenv,auth=(Username,Password))
     if requestCreateEnv.status_code != 200:
         print "Create Enviroment to App request failed" + requestCreateEnv.content
         return False
@@ -201,36 +199,30 @@ def getAppProcessInfo(appName,processName):
     print "Get App process Info Passed"
     return  json.loads(requestGetAppProcessInfo.content)
 
-def createResource(fileName,resourceName):
-    print "Creating Resouce "+resourceName
+def createResource(Username,Password,ServerEndpoint,json_data):
+    print "Creating Resouce "
     createResourceUri="/cli/resource/create"
     createResourceUrl=ServerEndpoint+createResourceUri
-    FilePath = ConfigDir + "/" + fileName
-    json_data = open(FilePath)
     headers = {'Accept': 'application/json'}
-    requestCreateResource = requests.put(createResourceUrl, headers=headers, data=json_data, auth=(User, Password))
+    requestCreateResource = requests.put(createResourceUrl, headers=headers, data=json.dumps(json_data), auth=(Username, Password))
     if requestCreateResource.status_code != 200:
-        print "Creating Resouce "+resourceName+" failed"
+        print "Creating Resouce  failed"
         print requestCreateResource.content
         return False
-    print "Created resource "+resourceName
+    print "Created resource "
     print requestCreateResource.content
     return json.loads(requestCreateResource.content)
 
-def addBaseResourceToEnvironment(envId,resourceId,appId=None):
-    print "Adding base resource " + resourceId+" to Enviroment "+envId
+def addBaseResourceToEnvironment(Username,Password,ServerEndpoint,payload):
+    print "Adding base resource to Environment"
     addBaseResourceToEnviromentUri="/cli/environment/addBaseResource"
     addBaseResourceToEnviromentUrl=ServerEndpoint+addBaseResourceToEnviromentUri
-    payload = {
-        "environment" : envId,
-        "resource" : resourceId
-    }
-    requestAddBaseResourceToEnvironment=requests.put(addBaseResourceToEnviromentUrl,params=payload,auth=(User,Password))
+    requestAddBaseResourceToEnvironment=requests.put(addBaseResourceToEnviromentUrl,params=payload,auth=(Username,Password))
     if requestAddBaseResourceToEnvironment.status_code != 200:
         print "Add Base Resource to Enviroment Failed"
         print requestAddBaseResourceToEnvironment.content
         return False
-    print "Added Resouce "+resourceId+ " to Environment "+envId
+    print "Added Resouce "+resourceId+ " to Environment "
     print requestAddBaseResourceToEnvironment.content
     return True
 

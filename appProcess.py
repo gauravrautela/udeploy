@@ -26,6 +26,11 @@ envColor={"Green": "%2317AF4B", "Olive": "%23838329", "Orange": "%23DD731C", "Re
 
 ServerEndpoint="http://54.169.134.120:8080"
 
+token=os.environ['token']
+authHeaders = {'Authorization': 'Basic '+token}
+print authHeaders
+
+
 configcomponent={
     "name": appName,
     "description": "IIB Component",
@@ -35,10 +40,11 @@ configcomponent={
     "defaultVersionType": "FULL",
 }
 
+
 OUT=create(Username,Password,ServerEndpoint,configcomponent,appName,"/cli/component/create")
 print ("Output status" + str(OUT))
 if OUT == False:
-    print("Failed creating Component"+appName)
+    print("Failed creating Component "+appName)
  #   sys.exit(100)
 
 configapp={
@@ -54,13 +60,57 @@ if OUT == False:
  #   sys.exit(100)
 
 ## ADD to team
+print ("Adding APP to Team")
 toTeam=appToTeam(appName,teamName,ServerEndpoint,Username,Password)
-if toTeam == False :
-    print("Failed to add to Team")
-#    sys.exit(100)
 
+print ("Addning Component to Team")
 toTeam=componentToTeam(appName,teamName,ServerEndpoint,Username,Password)
-if toTeam == False :
-    print("Failed to add to Team")
-#    sys.exit(100)
+
+print ("Adding "+appName+" Component to "+appName+" APP")
+addComponentToApp(appName,appName,ServerEndpoint,Username,Password)
+
+env={"name": "DEV", "color": envColor["Blue"], "resources": ["First","second"]}
+
+print ("Creating ENV ")
+configenv={
+    "application" : appName,
+    "name" : env["name"],
+    "color" : env["color"]
+}
+OUT=createEnvironment(Username,Password,ServerEndpoint,configenv,appName)
+if OUT == False:
+    print("Failed creating Enviroment"+appName)
+
+print ("Create Resource")
+configresource={
+    "name" : appName,
+    "role" : appName,
+    "parent" : "First"
+}
+createResource(Username,Password,ServerEndpoint,configresource)
+
+print ("Adding application env to team")
+configteam={
+    "application" : appName,
+    "team" : teamName,
+    "environment": env["name"]
+}
+url = ServerEndpoint+"/cli/environment/teams"
+r=requests.put(url,params=configteam,auth=(Username,Password))
+print(r.status_code)
+
+print env["name"]
+print ("Adding to base  Resource")
+configBase={
+    "environment" : env["name"],
+    "application" : appName,
+    "resource" : "Frist"
+
+}
+addBaseResourceToEnvironment(Username,Password,ServerEndpoint,configenv)
+
+
+
+
+
 
