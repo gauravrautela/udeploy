@@ -26,10 +26,6 @@ envColor={"Green": "%2317AF4B", "Olive": "%23838329", "Orange": "%23DD731C", "Re
 
 ServerEndpoint="http://54.169.134.120:8080"
 
-token=os.environ['token']
-authHeaders = {'Authorization': 'Basic '+token}
-print authHeaders
-
 
 configcomponent={
     "name": appName,
